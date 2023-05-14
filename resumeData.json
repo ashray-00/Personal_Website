@@ -1,0 +1,159 @@
+{
+  "main": {
+    "name":"Ashray Adhikari",
+    "description":"I'm a Software Engineer, currently working at Luxoft, supporting and developing applications for BMW Group that inform users about sensor statuses and measurement equipment failures.",
+    "image":"profilepic.jpg",
+    "bio":"I am a highly motivated Software Engineer with expertise in software engineering, programming principles, and machine learning. My proficiency in multiple languages and frameworks has enabled me to contribute to the development of software systems and user-friendly interfaces. I am passionate about software engineering and continuously seek opportunities to expand my skills and expertise, and work on new and exciting projects.",
+    "contactmessage":"Get in touch.",
+    "email": "adhikariashray@gmail.com",
+    "phone": "+491635148469",
+    "github":"https://github.com/ashray-00",
+    "project":"https://github.com/nordicgiant2/react-nice-resume",
+    "address":{
+      "country":"Germany",
+      "city":"Mûnchen",
+      "state":"Bavaria",
+      "zip": "81379"
+    },
+    "website": "http://www.timbakerdev.com",
+    "resumedownload":"AshrayAdhikariCV.pdf",
+    "social":[
+      {
+        "name":"linkedin",
+        "url":"https://www.linkedin.com/in/ashrayadhikari/",
+        "className":"fa fa-linkedin"
+      },
+      {
+        "name":"instagram",
+        "url":"https://www.instagram.com/ashrayadhikari/",
+        "className":"fa fa-instagram"
+      },
+      {
+        "name":"github",
+        "url":"hhttps://github.com/ashray-00",
+        "className":"fa fa-github"
+      }
+    ]
+  },
+  "resume":{
+    "skillmessage":"",
+    "education":[
+      {
+        "school":"Jacobs University Bremen",
+        "degree":"BSc. Computer Science",
+        "graduated":"June 2021",
+        "description":"Thesis: Underwater Image Enhancement, Minor in Intelligent Mobile System."
+      }
+    ],
+    "work":[
+      {
+        "company":"Luxoft",
+        "title":"Junior Software Engineer",
+        "years":"October 2021 - Present",
+        "description":[
+          {"text": "Successfully contributed to the development and maintenance of the Vehicle State Monitor (VSM) on Ubuntu 18."},
+          {"text": "Played a key role in adding new features and making UI changes to the VSM, improving its functionality and usability."},
+          {"text": "Significantly improved the usability and accuracy of the VSM by almost 20% through identifying and fixing multiple issues in the code-base."}, 
+          {"text": "Maintained accurate documentation and participated in Agile development processes, ensuring seamless project delivery and stakeholder satisfaction."},
+          {"text": "Demonstrated a strong willingness to learn new technologies and techniques, provided technical support to team members."}
+        ]
+      },
+      {
+        "company":"Cellumation GmbH",
+        "title":"Working Student Software Engineer",
+        "years":"June 2020 - August 2021",
+        "description":[
+          {"text": "Formed and led a team to design, develop, and test software for the front-end machine interface, enabling efficient communication with the Celluveyor system."},
+          {"text": "Designed and developed a user-friendly Human Machine Interface (HMI) for the Celluveyor system that integrated different nodes into a database infrastructure and displayed data using various charts."},
+          {"text": "Developed a new Graphical Interface to replace outdated programs for calibrating the machine, which included adding Joystick support and a feature to detect overlapping boxes in the Celluveyor GUI."},
+          {"text": "Utilized a wide range of programming languages and tools, such as C++, Python, JavaScript, ROS, Vue.js, React, InfluxDB, Flux, Linux, Git, and Docker."},
+          {"text": "Contributed to a more efficient and streamlined system for warehouse employees, enhancing their ability to operate the Celluveyor effectively."},
+          {"text": "Gained in-depth expertise in software development processes, database management, and user interface design, which can be applied to future projects."}
+        ]
+      }
+    ],
+    "skills":[
+      {
+        "name":"C++",
+        "level":"90%"
+      },
+      {
+        "name":"Python",
+        "level":"90%"
+      },
+      {
+        "name":"JavaScript",
+        "level":"80%"
+      },
+      {
+        "name":"Java",
+        "level":"60%"
+      },
+      {
+        "name":"React",
+        "level":"60%"
+      },
+      {
+        "name":"Vue.js",
+        "level":"60%"
+      },
+      {
+        "name":"Machine Learning",
+        "level":"60%"
+      },
+      {
+        "name":"Deep Learning",
+        "level":"60%"
+      },
+      {
+        "name":"HTML/CSS",
+        "level":"70%"
+      }
+    ],
+    "certificate":[
+      {
+        "name":"Deep Learning Specialization",
+        "issuer":"deeplearning.ai on Coursera",
+        "link":"https://coursera.org/share/a705adfb54e8ba5470eaee503b3293ad"
+      },
+      {
+        "name":"Game Development for Modern Platforms",
+        "issuer":"deeplearning.ai on Coursera",
+        "link":"https://coursera.org/share/ee793e335960195d0caff0b9149bc844"
+      },
+      {
+        "name":"HTML, CSS, and Javascript for Web Developers",
+        "issuer":"deeplearning.ai on Coursera",
+        "link":"https://coursera.org/share/3a226ccb296c8c92636300eeebf0d92d"
+      }
+    ]
+  },
+  "portfolio":{
+    "projects": [
+      {
+        "title":"Art Generation with Neural Style Transfer",
+        "category":"Deep Learning projects implementing neural style transfer algorithm",
+        "image":"neuralstyle.png",
+        "url":"https://github.com/ashray-00/Art-Generation-with-Neural-Style-Transfer"
+      },
+      {
+        "title":"Underwater-Image-Enhancements",
+        "category":"Implementation of Underwater Image Enhancement methods used for my Bacheler's thesis.",
+        "image":"Valentine_10.png",
+        "url":"https://github.com/ashray-00/Underwater-Image-Enhancements"
+      },
+      {
+        "title":"Unity Games",
+        "category":"Some Simple Games I developed using Unity",
+        "image":"unity.png",
+        "url":"https://github.com/ashray-00/MyUnityGame"
+      },
+      {
+        "title":"Eyden Tracer",
+        "category":"Assignment on implementing Ray Tracing Algorithm",
+        "image":"raytrace.jpeg",
+        "url":"https://github.com/ashray-00/eyden-tracer-02"
+      }
+    ]
+  }
+}
