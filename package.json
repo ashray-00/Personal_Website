@@ -18,6 +18,7 @@
     "react-zmage": "^0.8.5-beta.36",
     "web-vitals": "^1.0.1"
   },
+  "homepage": "https://ashray-00.github.io/Personal_Website/",
   "scripts": {
     "start": "react-scripts start",
     "predeploy" : "npm run build",
