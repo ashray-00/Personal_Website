@@ -2,7 +2,6 @@
   "name": "reactniceresume",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -18,7 +17,7 @@
     "react-zmage": "^0.8.5-beta.36",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://ashray-00.github.io/Personal_Website/",
+  "homepage": "https://ashrayadhikari.com.np/",
   "scripts": {
     "start": "react-scripts start",
     "predeploy" : "npm run build",
