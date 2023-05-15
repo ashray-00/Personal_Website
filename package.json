@@ -17,7 +17,7 @@
     "react-zmage": "^0.8.5-beta.36",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://ashrayadhikari.com.np/",
+  "homepage": "https://ashray-00.github.io",
   "scripts": {
     "start": "react-scripts start",
     "predeploy" : "npm run build",
