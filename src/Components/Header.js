@@ -7,7 +7,7 @@ class Header extends Component {
     if (!this.props.data) return null;
 
     const linkedin = this.props.data.linkedin;
-    const resume = "pdf/" + this.props.data.resumedownload;
+    const resume = this.props.data.resumedownload;
     const name = this.props.data.name;
     const description = this.props.data.description;
 
