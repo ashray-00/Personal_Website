@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ashray Adhikari — Software Engineer based in Munich, Germany.">
+  <title>Ashray Adhikari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:         #F5F4F1;
+      --surface:    #FFFFFF;
+      --text-h:     #141411;
+      --text-b:     #3B3A37;
+      --text-m:     #8C8B86;
+      --border:     #E2E0DA;
+      --border-sub: #EDEAE5;
+      --green:      #1C3D2D;
+
+      --serif: 'Cormorant', Georgia, 'Times New Roman', serif;
+      --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+      --mono:  'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg:         #111110;
+        --surface:    #1B1B19;
+        --text-h:     #F0EFE9;
+        --text-b:     #AEADA7;
+        --text-m:     #555450;
+        --border:     #262522;
+        --border-sub: #1D1D1B;
+        --green:      #50A06B;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg:         #111110;
+      --surface:    #1B1B19;
+      --text-h:     #F0EFE9;
+      --text-b:     #AEADA7;
+      --text-m:     #555450;
+      --border:     #262522;
+      --border-sub: #1D1D1B;
+      --green:      #50A06B;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition-duration: 0.01ms !important; }
+    }
+
+    body {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-b);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      height: 46px;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-h);
+      text-decoration: none;
+      letter-spacing: 0.005em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-m);
+      text-decoration: none;
+      transition: color 0.12s;
+    }
+
+    .nav-links a:hover { color: var(--text-h); }
+    .nav-links a:focus-visible,
+    .nav-name:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 1px; }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 4rem;
+      padding: 5rem 0 4.5rem;
+      align-items: start;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(40px, 6vw, 58px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text-h);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-spec {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+    }
+
+    .hero-right { padding-top: 0.375rem; }
+
+    .hero-intro {
+      font-size: 17px;
+      line-height: 1.72;
+      color: var(--text-b);
+      margin-bottom: 2rem;
+    }
+
+    .hero-email {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-m);
+      text-decoration: none;
+      transition: color 0.12s;
+      display: inline-block;
+    }
+
+    .hero-email:hover { color: var(--green); }
+    .hero-email:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 1px; }
+
+    /* ── SECTION HEADINGS ── */
+    .ch {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-h);
+      padding: 2.75rem 0 1.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 2.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+
+    .exp:last-child { border-bottom: none; }
+
+    .exp-when {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    .exp-where {
+      font-size: 12px;
+      color: var(--text-m);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .exp-role {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-h);
+      margin-bottom: 0.1rem;
+    }
+
+    .exp-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+      margin-bottom: 0.875rem;
+      letter-spacing: 0.02em;
+    }
+
+    .exp-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .exp-p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-b);
+    }
+
+    .exp-p strong { font-weight: 500; color: var(--text-h); }
+
+    .exp-stack {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-m);
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── PROJECTS ── */
+    .projects { display: flex; flex-direction: column; }
+
+    .proj {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+
+    .proj:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .proj-hd {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .proj-name {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-h);
+      letter-spacing: 0.01em;
+    }
+
+    .proj-links { display: flex; gap: 1.125rem; }
+
+    .proj-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.12s, border-color 0.12s;
+    }
+
+    .proj-link:hover { color: var(--text-h); border-color: var(--text-m); }
+    .proj-link:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 1px; }
+
+    .proj-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+      align-items: start;
+    }
+
+    .proj-p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-b);
+    }
+
+    .proj-p + .proj-p { margin-top: 0.75rem; }
+
+    .metric-stamp {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: 0.125rem;
+    }
+
+    .metric-num {
+      font-family: var(--mono);
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    .metric-desc {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-m);
+      text-align: right;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+    }
+
+    .pipeline-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+      align-items: start;
+    }
+
+    .pipeline {
+      border-left: 1.5px solid var(--border);
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pipeline-row {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-b);
+      letter-spacing: 0.025em;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border-sub);
+      line-height: 1.5;
+    }
+
+    .pipeline-row:last-child { border-bottom: none; }
+
+    .pipeline-row .tier {
+      color: var(--text-m);
+      margin-right: 0.5rem;
+    }
+
+    .pipeline-metrics {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 1.25rem;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    .phases {
+      margin: 1.125rem 0 0.875rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .phase {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .phase.final {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .phase-sep {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-m);
+    }
+
+    .phase-result {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .phase-stat {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--green);
+      letter-spacing: 0.01em;
+    }
+
+    .proj-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+      align-items: start;
+    }
+
+    .proj-decisions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      padding-top: 0.125rem;
+    }
+
+    .proj-decision {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-b);
+      padding-left: 0.875rem;
+      border-left: 1.5px solid var(--border);
+    }
+
+    .proj-live {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.875rem;
+      letter-spacing: 0.01em;
+      transition: opacity 0.12s;
+    }
+
+    .proj-live:hover { opacity: 0.7; }
+    .proj-live:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 1px; }
+
+    .proj-stack {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-m);
+      margin-top: 0.875rem;
+      letter-spacing: 0.025em;
+      line-height: 1.6;
+    }
+
+    .spec {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+      margin-top: 0.25rem;
+    }
+
+    .spec-row {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+
+    .spec-row:nth-last-child(-n+2) { border-bottom: none; }
+
+    .spec-k {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-m);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+
+    .spec-v {
+      font-size: 13px;
+      color: var(--text-b);
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 4rem 0 0;
+      margin-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-name {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--text-h);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+
+    .contact-row:nth-last-child(-n+2) { border-bottom: none; }
+
+    .contact-lbl {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-m);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: 68px;
+      flex-shrink: 0;
+    }
+
+    .contact-val {
+      font-size: 13px;
+      color: var(--text-b);
+      text-decoration: none;
+      transition: color 0.12s;
+      line-height: 1.5;
+    }
+
+    a.contact-val:hover { color: var(--green); }
+    a.contact-val:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 1px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 1.75rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer span {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-m);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── COMPACT PROJECT LIST ── */
+    .proj-also-head {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-m);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 1.75rem 0 0.875rem;
+      border-top: 1px solid var(--border-sub);
+    }
+
+    .proj-compact {
+      display: grid;
+      grid-template-columns: 190px 1fr auto;
+      gap: 0 2rem;
+      align-items: baseline;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+
+    .proj-compact:last-child { border-bottom: none; }
+
+    .proj-compact-name {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-h);
+    }
+
+    .proj-compact-desc {
+      font-size: 13px;
+      color: var(--text-m);
+      line-height: 1.5;
+    }
+
+    .proj-compact-links { display: flex; gap: 1rem; flex-shrink: 0; }
+
+    /* ── ATTACK RESULTS TABLE ── */
+    .attack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 11px;
+      margin-top: 1.25rem;
+    }
+
+    .attack-table th {
+      text-align: left;
+      padding: 0.35rem 1rem 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-m);
+      letter-spacing: 0.05em;
+      font-weight: 400;
+    }
+
+    .attack-table td {
+      padding: 0.3rem 1rem 0.3rem 0;
+      border-bottom: 1px solid var(--border-sub);
+      color: var(--text-b);
+      vertical-align: top;
+    }
+
+    .attack-table tr:last-child td { border-bottom: none; }
+    .asr-val { color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        gap: 2rem 0;
+        padding: 3rem 0 3rem;
+      }
+
+      .hero-name { font-size: 42px; }
+      .hero-right { padding-top: 0; }
+
+      .exp {
+        grid-template-columns: 1fr;
+        gap: 0.375rem;
+      }
+
+      .exp-role { margin-top: 0.5rem; }
+
+      .proj-split,
+      .pipeline-wrap,
+      .proj-editorial,
+      .spec { grid-template-columns: 1fr; }
+
+      .metric-stamp { align-items: flex-start; margin-top: 0.75rem; }
+      .metric-desc { text-align: left; }
+
+      .phases { gap: 0.3rem; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-row:nth-last-child(-n+2) { border-bottom: 1px solid var(--border-sub); }
+      .contact-row:last-child { border-bottom: none; }
+
+      .spec-row:nth-last-child(-n+2) { border-bottom: 1px solid var(--border-sub); }
+      .spec-row:last-child { border-bottom: none; }
+
+      .proj-compact { grid-template-columns: 1fr; gap: 0.25rem; }
+      .proj-compact-links { margin-top: 0.25rem; }
+
+      .attack-table { font-size: 10px; }
+      .attack-table th,
+      .attack-table td { padding: 0.3rem 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site navigation">
+  <a class="nav-name" href="#hero">Ashray Adhikari</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-left">
+      <h1 class="hero-name">Ashray<br>Adhikari</h1>
+      <div class="hero-specs">
+        <span class="hero-spec">Software Engineer</span>
+        <span class="hero-spec">Munich, Germany</span>
+        <span class="hero-spec">github.com/ashray-00</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-intro">
+        Five years as sole engineer on a real-time vehicle data platform for BMW — full ownership, AUTOSAR protocol stacks, zero data drops across endurance drives. In parallel: a PyPI-published C++ hybrid search library, a prompt-injection detection cascade, a from-scratch LLM inference server, a live production RAG application. The work spans real-time systems constraints and transformer fine-tuning.
+      </p>
+      <a class="hero-email" href="mailto:adhikariashray@gmail.com">adhikariashray@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" aria-label="Work experience">
+    <h2 class="ch">Work</h2>
+
+    <div class="exp">
+      <div>
+        <div class="exp-when">Oct 2021<br>– Present</div>
+        <div class="exp-where">Luxoft<br>Munich</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-sub">Vehicle State Monitor (VSM) · BMW · sole engineer &amp; lead developer</div>
+        <div class="exp-body">
+          <p class="exp-p">Designed and built a C++17/gRPC real-time streaming platform spanning the full AUTOSAR protocol stack — CAN, SOME/IP, DLT, IPC, Ethernet. <strong>Zero data drops</strong> across multi-day BMW endurance drives as the only engineer responsible from architecture to delivery.</p>
+          <p class="exp-p">Re-architected a legacy ROS tool to a cross-platform gRPC service. MTBF raised from ~1 hour to <strong>continuous multi-day operation</strong>. Dedicated server channels per message type prevent signal starvation under peak bus load. Per-bus-type multi-threaded frame-reassembly with ring buffers, mutexes, and lock-free atomics for bounded heap growth and predictable latency.</p>
+          <p class="exp-p">Fan-out streaming architecture with pub/sub and polling interfaces — enabled self-serve adoption by external BMW engineering teams and post-drive signal replay. Multithreaded Qt GUI for real-time camera visualization, live throughput metrics, and direct ECU parameter modification.</p>
+        </div>
+        <div class="exp-stack">C++17 · gRPC/Protobuf · Qt5/6 · AUTOSAR · CAN · SOME/IP · DLT · IPC · Python · Linux</div>
+      </div>
+    </div>
+
+    <div class="exp">
+      <div>
+        <div class="exp-when">Jun 2020<br>– Aug 2021</div>
+        <div class="exp-where">Cellumation GmbH<br>Bremen</div>
+      </div>
+      <div>
+        <div class="exp-role">Working Student Software Engineer</div>
+        <div class="exp-sub">Celluveyor robotic warehouse system</div>
+        <div class="exp-body">
+          <p class="exp-p">Led a small team to ship a Qt HMI with joystick control and automatic cell-overlap detection, and an InfluxDB-backed throughput analytics dashboard for the Celluveyor robotic warehouse conveyor, replacing a legacy calibration tool.</p>
+        </div>
+        <div class="exp-stack">C++ · Qt · Python · React · Vue.js · InfluxDB · ROS · Docker</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-label="Projects">
+    <h2 class="ch">Projects</h2>
+
+    <div class="projects">
+
+      <!-- sqlite-hybrid-search -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">sqlite-hybrid-search</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/sqlite-hybrid-search" target="_blank" rel="noopener">GitHub</a>
+            <a class="proj-link" href="https://pypi.org/project/sqlite-hybrid-search" target="_blank" rel="noopener">PyPI</a>
+          </div>
+        </div>
+        <div class="proj-split">
+          <div>
+            <p class="proj-p">In-process C++17 library that fuses dense HNSW vector search (usearch) and BM25 full-text retrieval (SQLite FTS5) via Reciprocal Rank Fusion with per-chunk exponential recency decay. Single-writer/concurrent-reader WAL concurrency, no external locking. Pimpl public API. nanobind Python bindings with prebuilt wheels for Linux x86-64 and macOS Apple Silicon.</p>
+            <p class="proj-p">Cold-start time cut from 14.6 seconds to ~40ms by persisting the HNSW graph to disk. The whole retrieval stack fits in-process — no network hop, no separate service.</p>
+          </div>
+          <div class="metric-stamp">
+            <span class="metric-num">sub-0.2ms</span>
+            <span class="metric-desc">dense p50 latency<br>at 100k documents</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- moat -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">moat</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/moat" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="proj-editorial">
+          <div>
+            <p class="proj-p">SEC 10-K/10-Q RAG application. In production, with Stripe billing and real users. Not a demo.</p>
+            <p class="proj-p">pgvector dense retrieval + Postgres FTS via RRF. Cohere/CrossEncoder reranking. LangGraph agent with XBRL financial fact tools. HITL review gates. Langfuse observability throughout.</p>
+            <a class="proj-live" href="https://moat-blond.vercel.app" target="_blank" rel="noopener">moat-blond.vercel.app ↗</a>
+            <div class="proj-stack">Python · FastAPI · LangGraph · Next.js · Supabase/pgvector · LiteLLM · Stripe · Langfuse</div>
+          </div>
+          <div class="proj-decisions" aria-label="Engineering decisions">
+            <div class="proj-decision">LangGraph for the agent loop — explicit state graph rather than framework magic, every branching decision legible and testable</div>
+            <div class="proj-decision">RRF over pure dense search because financial filings have both precise entity names (dense-friendly) and long analytical passages (BM25-friendly)</div>
+            <div class="proj-decision">HITL gates at the reranking stage because hallucinated financial figures have real consequences</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- NFT Munich -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">NFT Munich</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://nftmunch.club" target="_blank" rel="noopener">nftmunch.club ↗</a>
+            <a class="proj-link" href="https://github.com/ashray-00/nftmunich" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="proj-editorial">
+          <div>
+            <p class="proj-p">Full-stack web presence for NFT Munich football club — a real sports club with fixtures, squads, and club management needs. Sole developer across design, implementation, and production deployment.</p>
+            <p class="proj-p">CMS-backed so the club can update fixtures, news, and squad pages without touching code. Live in production at nftmunch.club.</p>
+            <div class="proj-stack">Next.js · TypeScript · Tailwind CSS · Headless CMS · Vercel</div>
+          </div>
+          <div class="proj-decisions" aria-label="Engineering decisions">
+            <div class="proj-decision">Headless CMS so non-technical club staff can publish match results and news independently — the admin interface was part of the deliverable</div>
+            <div class="proj-decision">Sole developer on a real client project: design direction, component system, CMS schema, and deployment all owned end-to-end</div>
+            <div class="proj-decision">Static generation for content pages, server rendering for dynamic fixtures — keeps the club's page fast without a backend team to maintain it</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- mlscan -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">mlscan</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/mlscan" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-p" style="margin-bottom:1.25rem">Static ML supply-chain scanner. Simulates the pickle VM stack and memo to recover imports hidden through multi-step opcode chains — without executing any input. Zero external dependencies.</p>
+        <div class="spec">
+          <div class="spec-row">
+            <div class="spec-k">Formats</div>
+            <div class="spec-v">safetensors · GGUF · HDF5 · ONNX · Keras</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Detects</div>
+            <div class="spec-v">Jinja2 sandbox escapes · Zip Slip · shadow weights</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Typosquat engine</div>
+            <div class="spec-v">NFKC + homoglyph map + casefolding</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Output</div>
+            <div class="spec-v">SARIF · CycloneDX ML-BOM</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Performance</div>
+            <div class="spec-v">Parallel 8-thread scanning</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Dependencies</div>
+            <div class="spec-v">None. Python stdlib only.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ragaudit -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">ragaudit</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/ragaudit" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-p">Three-tier adversarial evaluation platform for LLM and RAG systems. Next.js frontend, Python FastAPI backend, Go worker orchestrating Docker sandboxes for isolated tool execution. Maps findings to OWASP LLM Top 10 2025.</p>
+        <p class="proj-p" style="margin-top:0.75rem">Per-tool HITL approval gates with three decisions — allow, deny, or allow-with-network-access. Strict sandbox mode fails closed if the worker is unavailable; enterprise profile disallows auto-approve entirely. Each finding captures the complete exchange: prompts, multi-turn history, tool calls, raw outputs.</p>
+        <div class="spec" style="margin-top:1.25rem">
+          <div class="spec-row">
+            <div class="spec-k">Execution modes</div>
+            <div class="spec-v">Internal agent · external HTTP API · mock provider</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Model providers</div>
+            <div class="spec-v">Ollama · OpenAI · Anthropic · Groq · Azure · Gemini</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Export</div>
+            <div class="spec-v">JSON · SARIF · PDF · HTML</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Coverage</div>
+            <div class="spec-v">OWASP LLM Top 10 2025</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Stack</div>
+            <div class="spec-v">Next.js · TypeScript · Python 3.12 · FastAPI · Go · Docker · PostgreSQL · Redis</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Secrets</div>
+            <div class="spec-v">Vault key_ref abstraction — never logged or transmitted in plaintext</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Atlas-Workbench -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">Atlas-Workbench</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/Atlas-Workbench" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-p" style="margin-bottom:1.25rem">Multi-tenant AI workspace platform. Five specialized agents behind a single interface, plus a sandboxed developer environment with a real terminal and git integration — isolated per-user containers, not a shared shell.</p>
+        <div class="spec">
+          <div class="spec-row">
+            <div class="spec-k">Research agent</div>
+            <div class="spec-v">Web search · source synthesis · citation tracking</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Doc Q&amp;A agent</div>
+            <div class="spec-v">Uploaded document retrieval with inline source citations</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">SQL agent</div>
+            <div class="spec-v">Natural-language to SQL with schema introspection</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Code review agent</div>
+            <div class="spec-v">Diff-aware analysis, security checks, style feedback</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Dev assistant</div>
+            <div class="spec-v">Terminal access + git in per-user sandboxed container</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-k">Infrastructure</div>
+            <div class="spec-v">Docker Compose · Kubernetes · multi-tenant isolation</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- dossier-agent -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">dossier-agent</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/dossier-agent" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="pipeline-wrap">
+          <div class="pipeline" aria-label="5-stage LangGraph pipeline">
+            <div class="pipeline-row"><span class="tier">01</span>async Celery ingestion</div>
+            <div class="pipeline-row"><span class="tier">02</span>AstraDB dense + BM25 hybrid retrieval</div>
+            <div class="pipeline-row"><span class="tier">03</span>dynamic routing (docs ↔ web search)</div>
+            <div class="pipeline-row"><span class="tier">04</span>RAGAS evaluation</div>
+            <div class="pipeline-row"><span class="tier">05</span>SSE streaming response</div>
+          </div>
+          <div>
+            <p class="proj-p">5-stage LangGraph pipeline that routes dynamically across uploaded documents and live web search depending on query type. AstraDB provides dense vector retrieval; BM25 covers exact-match queries that embeddings tend to miss.</p>
+            <p class="proj-p" style="margin-top:0.75rem">RAGAS evaluation pipeline runs continuously — faithfulness, answer relevance, and context precision tracked per query. SSE streaming so responses feel immediate even on long retrievals.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- injection-guard -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">injection-guard</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/injection-guard" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="pipeline-wrap">
+          <div class="pipeline" aria-label="5-tier detection cascade">
+            <div class="pipeline-row"><span class="tier">01</span>normalization fan-out</div>
+            <div class="pipeline-row"><span class="tier">02</span>17-signal heuristic family</div>
+            <div class="pipeline-row"><span class="tier">03</span>MiniLM-L6 embedding-margin</div>
+            <div class="pipeline-row"><span class="tier">04</span>DeBERTa-v3-small + Platt cal.</div>
+            <div class="pipeline-row"><span class="tier">05</span>output &amp; canary checks</div>
+            <div class="pipeline-metrics">ROC-AUC 0.9978<br>PR-AUC 0.9965<br>97.2% recall @ 1% FPR</div>
+          </div>
+          <div>
+            <p class="proj-p">Prompt-injection detection cascade. Each tier is an independent classifier — the cascade exits early on high-confidence decisions. 88% cache hit rate compresses average latency to <span style="font-family:var(--mono);color:var(--green);font-size:13px">2.73ms/chunk</span> (p95 46.9ms).</p>
+            <p class="proj-p" style="margin-top:0.75rem">Trained on 2,100 examples spanning 9 attack classes across 11+ languages — payload splitting, indirect injection, obfuscation. Group-split evaluation prevents leakage between attack variants. Test set n=848.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- llm-serving-from-scratch -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">llm-serving-from-scratch</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/llm-serving-from-scratch" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-p">LLM inference server study on Qwen2.5-1.5B-Instruct running on Apple Silicon MPS. Four serving architectures implemented in sequence to isolate the contribution of each decision. Fused PagedAttention kernels deliberately excluded so each architectural effect is independently measurable.</p>
+        <div class="phases" aria-label="Phase progression">
+          <span class="phase">naive single-lock</span>
+          <span class="phase-sep">→</span>
+          <span class="phase">static batching</span>
+          <span class="phase-sep">→</span>
+          <span class="phase">continuous batching</span>
+          <span class="phase-sep">→</span>
+          <span class="phase final">paged KV + prefix cache</span>
+        </div>
+        <div class="phase-result">
+          <span class="phase-stat">+39% throughput (10.86 → 15.10 tok/s)</span>
+          <span class="phase-stat">−36% p50 latency (93.6 → 60.0s)</span>
+        </div>
+      </article>
+
+      <!-- llm-redteam-harness -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">llm-redteam-harness</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/llm-redteam-harness" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <p class="proj-p">Adversarial testing framework for LLMs. 13 techniques × 6 payloads factorial design, 30 trials per cell, 2,700 total attempts against <span style="font-family:var(--mono);font-size:13px">llama3.2:3b</span>. Three-judge ensemble: exact canary match (κ=1.00), LLM judge (κ=0.62), regex (κ=0.38). Wilson score intervals throughout — per-payload analysis, no pooling that would mask payload-specific effects. Benign control arm catches refuse-everything models.</p>
+        <table class="attack-table" aria-label="Top technique attack success rates">
+          <thead>
+            <tr>
+              <th>Technique</th>
+              <th>ASR</th>
+              <th>Finding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>format_smuggle</td>
+              <td class="asr-val">100%</td>
+              <td>Dropped to 43% with benign preamble — phrasing substantially affects measured ASR</td>
+            </tr>
+            <tr>
+              <td>roleplay_dual_channel</td>
+              <td class="asr-val">90%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>fiction_scene</td>
+              <td class="asr-val">51%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>authority_developer</td>
+              <td class="asr-val">50%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>structured output (JSON schema)</td>
+              <td class="asr-val">100%</td>
+              <td>Bypassed policy entirely — discovered post-study, not in original 13</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact">
+    <h2 class="contact-name">Ashray Adhikari</h2>
+    <div class="contact-grid">
+      <div class="contact-row">
+        <span class="contact-lbl">Email</span>
+        <a class="contact-val" href="mailto:adhikariashray@gmail.com">adhikariashray@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">GitHub</span>
+        <a class="contact-val" href="https://github.com/ashray-00" target="_blank" rel="noopener">github.com/ashray-00</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">LinkedIn</span>
+        <a class="contact-val" href="https://linkedin.com/in/ashrayadhikari" target="_blank" rel="noopener">linkedin.com/in/ashrayadhikari</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">Location</span>
+        <span class="contact-val">Munich, Germany</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">Education</span>
+        <span class="contact-val">B.Sc. Computer Science — Jacobs University Bremen, 2021</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>adhikariashray@gmail.com</span>
+    <span>Munich · September 2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
