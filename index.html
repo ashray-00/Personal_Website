@@ -736,6 +736,33 @@
 
     <div class="projects">
 
+      <!-- vox -->
+      <article class="proj">
+        <div class="proj-hd">
+          <span class="proj-name">vox</span>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/ashray-00/vox" target="_blank" rel="noopener">GitHub</a>
+            <a class="proj-link" href="https://medium.com/@ashrayadhikari/i-built-a-real-time-voice-agent-and-the-hardest-part-was-getting-it-to-shut-up-18c8809ea916" target="_blank" rel="noopener">Medium ↗</a>
+          </div>
+        </div>
+        <div class="pipeline-wrap">
+          <div class="pipeline" aria-label="6-stage voice agent pipeline">
+            <div class="pipeline-row"><span class="tier">01</span>Silero VAD — voice activity detection</div>
+            <div class="pipeline-row"><span class="tier">02</span>faster-whisper STT — rolling partials</div>
+            <div class="pipeline-row"><span class="tier">03</span>turn detection</div>
+            <div class="pipeline-row"><span class="tier">04</span>LLM reasoning (OpenAI / llama.cpp)</div>
+            <div class="pipeline-row"><span class="tier">05</span>OpenAI TTS — first-chunk streaming</div>
+            <div class="pipeline-row"><span class="tier">06</span>barge-in monitor — echo-gated VAD</div>
+            <div class="pipeline-metrics">STT p50 163ms<br>LLM TTFT p50 3,111ms<br>TTS TTFA p50 1,800ms</div>
+          </div>
+          <div>
+            <p class="proj-p">Real-time voice agent with interrupt capability. The pipeline chains VAD → STT → turn detection → LLM → TTS, targeting 500–600ms voice-to-voice. Rolling partial transcripts keep the STT stage from blocking the response path.</p>
+            <p class="proj-p" style="margin-top:0.75rem">The hard part was barge-in: the agent runs a state machine (<span style="font-family:var(--mono);font-size:12px">LISTENING → THINKING → SPEAKING → INTERRUPTED</span>) while a parallel VAD thread filters playback echo using correlation thresholds and a ~200ms energy-hold gate — so the agent stops talking when the user interrupts, not when it hears itself.</p>
+            <div class="proj-stack" style="margin-top:1rem">Python · faster-whisper · Silero VAD · OpenAI LLM/TTS · llama.cpp · Tavily</div>
+          </div>
+        </div>
+      </article>
+
       <!-- sqlite-hybrid-search -->
       <article class="proj">
         <div class="proj-hd">
